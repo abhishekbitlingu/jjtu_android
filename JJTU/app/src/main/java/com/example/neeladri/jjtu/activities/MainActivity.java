@@ -2,15 +2,26 @@ package com.example.neeladri.jjtu.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.neeladri.jjtu.R;
+import com.example.neeladri.jjtu.fragments.AboutUsFragment;
+import com.example.neeladri.jjtu.fragments.ActivitiesFragment;
+import com.example.neeladri.jjtu.fragments.ConferencesFragment;
+import com.example.neeladri.jjtu.fragments.ContactUsFragment;
+import com.example.neeladri.jjtu.fragments.FollowUsFragment;
+import com.example.neeladri.jjtu.fragments.GalleryFragment;
+import com.example.neeladri.jjtu.fragments.NewsFragment;
+import com.example.neeladri.jjtu.fragments.PhdProgramFragment;
+import com.example.neeladri.jjtu.fragments.PublicationsFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,10 +49,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         if (savedInstanceState != null) {
-            mToolbar.setTitle(savedInstanceState.getCharSequence(ARG_TOOLBAR_TITLE));
             mSelectedNavItemId = savedInstanceState.getInt(ARG_SELECTED_NAV_ITEM_ID);
         }
         navigationView.setCheckedItem(mSelectedNavItemId);
+        onNavigationItemSelected(navigationView.getMenu().findItem(mSelectedNavItemId));
     }
 
     @Override
@@ -61,24 +72,32 @@ public class MainActivity extends AppCompatActivity
         mSelectedNavItemId = item.getItemId();
         if (mSelectedNavItemId == R.id.nav_about_us) {
             mToolbar.setTitle(R.string.about_us);
+            replaceFragment(new AboutUsFragment());
         } else if (mSelectedNavItemId == R.id.nav_gallery) {
             mToolbar.setTitle(R.string.gallery);
+            replaceFragment(new GalleryFragment());
         } else if (mSelectedNavItemId == R.id.nav_follow_us) {
             mToolbar.setTitle(R.string.follow_us);
+            replaceFragment(new FollowUsFragment());
         } else if (mSelectedNavItemId == R.id.nav_phd_program) {
             mToolbar.setTitle(R.string.phd_program);
+            replaceFragment(new PhdProgramFragment());
         } else if (mSelectedNavItemId == R.id.nav_contact_us) {
             mToolbar.setTitle(R.string.contact_us);
+            replaceFragment(new ContactUsFragment());
         } else if (mSelectedNavItemId == R.id.nav_publications) {
             mToolbar.setTitle(R.string.publications);
+            replaceFragment(new PublicationsFragment());
         } else if (mSelectedNavItemId == R.id.nav_conferences) {
             mToolbar.setTitle(R.string.conferences);
+            replaceFragment(new ConferencesFragment());
         } else if (mSelectedNavItemId == R.id.nav_activities) {
             mToolbar.setTitle(R.string.activities);
+            replaceFragment(new ActivitiesFragment());
         } else if (mSelectedNavItemId == R.id.nav_news) {
             mToolbar.setTitle(R.string.news);
+            replaceFragment(new NewsFragment());
         }
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -87,7 +106,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putCharSequence(ARG_TOOLBAR_TITLE, mToolbar.getTitle());
         outState.putInt(ARG_SELECTED_NAV_ITEM_ID, mSelectedNavItemId);
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.navigation_body_container, fragment);
+        transaction.commit();
     }
 }
