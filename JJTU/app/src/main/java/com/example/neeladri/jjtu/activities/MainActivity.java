@@ -14,24 +14,34 @@ import com.example.neeladri.jjtu.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String ARG_TOOLBAR_TITLE = "toolbar_title";
+    private static final String ARG_SELECTED_NAV_ITEM_ID = "selected_nav_item_id";
+    private Toolbar mToolbar;
+    private int mSelectedNavItemId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.about_us);
-        setSupportActionBar(toolbar);
+        mToolbar = findViewById(R.id.toolbar);
+        mToolbar.setTitle(R.string.about_us);
+        setSupportActionBar(mToolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        mSelectedNavItemId = R.id.nav_about_us;
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_camera);
+        if (savedInstanceState != null) {
+            mToolbar.setTitle(savedInstanceState.getCharSequence(ARG_TOOLBAR_TITLE));
+            mSelectedNavItemId = savedInstanceState.getInt(ARG_SELECTED_NAV_ITEM_ID);
+        }
+        navigationView.setCheckedItem(mSelectedNavItemId);
     }
 
     @Override
@@ -44,50 +54,40 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        mSelectedNavItemId = item.getItemId();
+        if (mSelectedNavItemId == R.id.nav_about_us) {
+            mToolbar.setTitle(R.string.about_us);
+        } else if (mSelectedNavItemId == R.id.nav_gallery) {
+            mToolbar.setTitle(R.string.gallery);
+        } else if (mSelectedNavItemId == R.id.nav_follow_us) {
+            mToolbar.setTitle(R.string.follow_us);
+        } else if (mSelectedNavItemId == R.id.nav_phd_program) {
+            mToolbar.setTitle(R.string.phd_program);
+        } else if (mSelectedNavItemId == R.id.nav_contact_us) {
+            mToolbar.setTitle(R.string.contact_us);
+        } else if (mSelectedNavItemId == R.id.nav_publications) {
+            mToolbar.setTitle(R.string.publications);
+        } else if (mSelectedNavItemId == R.id.nav_conferences) {
+            mToolbar.setTitle(R.string.conferences);
+        } else if (mSelectedNavItemId == R.id.nav_activities) {
+            mToolbar.setTitle(R.string.activities);
+        } else if (mSelectedNavItemId == R.id.nav_news) {
+            mToolbar.setTitle(R.string.news);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putCharSequence(ARG_TOOLBAR_TITLE, mToolbar.getTitle());
+        outState.putInt(ARG_SELECTED_NAV_ITEM_ID, mSelectedNavItemId);
     }
 }

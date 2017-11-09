@@ -1,8 +1,11 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <item name="ic_menu_camera" type="drawable">@android:drawable/ic_menu_camera</item>
+    <item name="ic_menu_about_us" type="drawable">@drawable/ic_menu_about_us</item>
+    <item name="ic_menu_follow_us" type="drawable">@drawable/ic_menu_follow_us</item>
+    <item name="ic_menu_phd_program" type="drawable">@drawable/ic_menu_phd_program</item>
     <item name="ic_menu_gallery" type="drawable">@android:drawable/ic_menu_gallery</item>
-    <item name="ic_menu_slideshow" type="drawable">@android:drawable/ic_menu_slideshow</item>
-    <item name="ic_menu_manage" type="drawable">@android:drawable/ic_menu_manage</item>
-    <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
-    <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
+    <item name="ic_menu_contact_us" type="drawable">@drawable/ic_menu_contact_us</item>
+    <item name="ic_menu_publications" type="drawable">@drawable/ic_menu_publications</item>
+    <item name="ic_menu_conferences" type="drawable">@drawable/ic_menu_conferences</item>
+    <item name="ic_menu_activities" type="drawable">@drawable/ic_menu_activities</item>
+    <item name="ic_menu_news" type="drawable">@drawable/ic_menu_news</item>
 </resources>
