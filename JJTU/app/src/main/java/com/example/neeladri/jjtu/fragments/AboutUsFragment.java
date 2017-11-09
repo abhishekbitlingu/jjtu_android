@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 
 import com.example.neeladri.jjtu.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class AboutUsFragment extends Fragment {
 
 
