@@ -35,7 +35,7 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View itemView = mLayoutInflater.inflate(R.layout.image_pager_item, container, false);
+       /* View itemView = mLayoutInflater.inflate(R.layout.image_pager_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.about_us_imageView);
         // Todo : Set the image to the view.
@@ -44,6 +44,8 @@ public class ImagePagerAdapter extends PagerAdapter {
         container.addView(itemView);
 
         return itemView;
+*/
+        return null;
     }
 
     @Override
