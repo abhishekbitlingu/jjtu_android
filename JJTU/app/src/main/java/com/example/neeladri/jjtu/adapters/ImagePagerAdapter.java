@@ -38,7 +38,7 @@ public class ImagePagerAdapter extends PagerAdapter {
        /* View itemView = mLayoutInflater.inflate(R.layout.image_pager_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.about_us_imageView);
-        // Todo : Set the image to the view.
+        // Todo : Set the mImage to the view.
         TextView titleText = itemView.findViewById(R.id.about_us_image_title);
         // Todo : Set the Image Title.
         container.addView(itemView);
