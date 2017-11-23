@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.example.neeladri.jjtu.R;
 import com.example.neeladri.jjtu.fragments.AboutUsFragment;
 import com.example.neeladri.jjtu.fragments.ActivitiesFragment;
+import com.example.neeladri.jjtu.fragments.ChancellorDeskFragment;
 import com.example.neeladri.jjtu.fragments.ConferencesFragment;
 import com.example.neeladri.jjtu.fragments.ContactUsFragment;
 import com.example.neeladri.jjtu.fragments.FollowUsFragment;
@@ -73,7 +74,10 @@ public class MainActivity extends AppCompatActivity
         if (mSelectedNavItemId == R.id.nav_about_us) {
             mToolbar.setTitle(R.string.about_us);
             replaceFragment(new AboutUsFragment());
-        } else if (mSelectedNavItemId == R.id.nav_gallery) {
+        } else if (mSelectedNavItemId == R.id.nav_chancellor_desk) {
+            mToolbar.setTitle(R.string.chancellor_desk);
+            replaceFragment(new ChancellorDeskFragment());
+        }else if (mSelectedNavItemId == R.id.nav_gallery) {
             mToolbar.setTitle(R.string.gallery);
             replaceFragment(new GalleryFragment());
         } else if (mSelectedNavItemId == R.id.nav_follow_us) {

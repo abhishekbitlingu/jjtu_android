@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_menu_about_us"
             android:title="@string/about_us" />
         <item
+            android:id="@+id/nav_chancellor_desk"
+            android:icon="@drawable/ic_chancellor_desk"
+            android:title="@string/chancellor_desk" />
+        <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/gallery" />

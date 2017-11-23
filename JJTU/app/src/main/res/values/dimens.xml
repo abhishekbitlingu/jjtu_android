@@ -8,11 +8,13 @@
     <dimen name="nav_header_title_text_size">19sp</dimen>
     <dimen name="about_us_image_title_container_height">55dp</dimen>
     <dimen name="about_us_image_height">220dp</dimen>
+    <dimen name="chancellor_image_height">300dp</dimen>
     <dimen name="about_us_image_title_container_padding">8dp</dimen>
     <dimen name="about_us_body_container_padding">10dp</dimen>
     <dimen name="about_us_body_container_top_margin">15dp</dimen>
     <dimen name="about_us_body_line_spacing">2sp</dimen>
     <dimen name="about_us_image_title_text_size">18sp</dimen>
+    <dimen name="chancellor_image_title_text_size">20sp</dimen>
     <dimen name="about_us_image_body_text_size">18sp</dimen>
     <dimen name="contact_image_dimens">65dp</dimen>
     <dimen name="contact_name_text_size">20sp</dimen>

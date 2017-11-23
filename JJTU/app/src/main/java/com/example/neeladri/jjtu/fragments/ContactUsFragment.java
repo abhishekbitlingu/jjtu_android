@@ -69,5 +69,9 @@ public class ContactUsFragment extends Fragment {
                 "Research Department", "Jhunjhunu, Rajasthan", "08104883420",
                 "phd@jjtu.ac.in");
         mContactsList.add(model);
+        model = new ContactUsModel(R.drawable.ajit_kaswan, "Mr. Tabrez Khan",
+                "Technical Assistant", "Mumbai, Maharashtra", "09769136568",
+                "khantabrez92@gmail.com");
+        mContactsList.add(model);
     }
 }
